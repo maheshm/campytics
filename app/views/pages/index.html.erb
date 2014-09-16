@@ -1,0 +1,11 @@
+<% unless signed_in? %>
+<div class="center hero-unit">
+  <h1>Welcome </h1>
+  <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+</div>
+<% else %>
+  <h1> Howdy! </h1>
+  <p> There are a lot of place holders which will give you a picture of how things <b>can</b> look like.</p>
+  <p> Lot have been ctrl-C ctrl-v ed. Bit modification in concepts. </p>
+  <div class="center"> <%= link_to "Start here", stats_path, class: "btn btn-success btn-large" %> </div>
+<% end %>

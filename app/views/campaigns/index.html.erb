@@ -1,0 +1,36 @@
+<h1> One time campaigns </h1>
+<p> Here you can create, edit or delete one time campaigns. </p>
+<br />
+<h4> What are one time campaigns </h4>
+<p>You have a festive season or some special occassion that has come that is not related to sales history or to your customer, eg Christmas. You can give your customers/selected customers offers. Eg: You wont give Onam offer to Delhi people!</p>
+<p>What you dont do here is create campaigns that depend on specific patterns you find in the sales.</p>
+<br>
+<div class="center"><%= link_to "Create new one-time campaign", new_campaign_path, class: "btn btn-success btn-large" %></div>
+<br>
+<div class="well">
+  <h4>Campaings for today</h4>
+  <hr>
+  <ul>
+    <% @c_today.each do |c| %>
+      <li>Campaign "<%= c.campaign_name %>" scheduled for <%= c.scheduled_date %>. <%= link_to "Show", c %>|<%= link_to "Edit", edit_campaign_path(c) %>|<a href="#">Delete</a></li>
+    <% end %>
+  </ul>
+</div>
+<div class="well">
+  <h4>Future campaings</h4>
+  <hr>
+  <ul>
+    <% @c_future.each do |c| %>
+      <li>Campaign "<%= c.campaign_name %>" scheduled for <%= c.scheduled_date %>. <%= link_to "Show", c %>|<%= link_to "Edit", edit_campaign_path(c) %>|<a href="#">Delete</a></li>
+    <% end %>
+  </ul>
+</div>
+<div class="well">
+  <h4>Past campaings</h4>
+  <hr>
+  <ul>
+    <% @c_past.each do |c| %>
+      <li>Campaign "<%= c.campaign_name %>" scheduled for <%= c.scheduled_date %>. <%= link_to "Show", c %></li>
+    <% end %>
+  </ul>
+</div>

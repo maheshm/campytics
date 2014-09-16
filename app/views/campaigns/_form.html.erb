@@ -1,0 +1,7 @@
+<%= form_for(@campaign) do |f| %>
+Campaign name: <%= f.text_field :campaign_name %> <br />
+Scheduled date: <%= f.date_select :scheduled_date %> <br />
+Rules: <%= f.text_field :rules %> <br />
+<%= f.hidden_field :user_id %>
+<%= f.submit :class => "btn btn-success btnlarge" %>
+<% end %>

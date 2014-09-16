@@ -1,0 +1,47 @@
+<h1> Current Stats </h1>
+<p> This pages shows you details about the current status. The stats are based on your sales history so far. Graphs missing also include the post campaign results and how the customers are responding to the campaigns. Suggestions based on that as well as corresponding action item shall also be shown. </p>
+<h4> $26.2MM in potential revenue identified </h4>
+<hr />
+<div class="container">
+  <div id='status_distribution' style='height:46px'></div>
+        <script type="text/javascript">
+        (function() {
+            var onload = window.onload;
+            window.onload = function(){
+            var chart_status_distribution;
+            var options;
+            options = { title: {style: {fontSize: "12px", fontFamily: "Verdana, Helvetica, Arial, sans-serif", color: "#46192A"}, text: null, floating: true},legend: {borderWidth: 1, backgroundColor: "#ffffff", enabled: false, borderColor: "#ffffff", itemStyle: {fontSize: "10px", fontFamily: "Lucida Sans Unicode, Lucida Grande", color: "#46192A"}},xAxis: {title: {text: null}, categories: null, labels: {enabled: false}, plotBands: null, plotLines: null, gridLineWidth: false, lineWidth: false, tickWidth: 0, lineColor: "#000000"},yAxis: {title: {text: null}, gridLineColor: "#ffffff", gridLineWidth: false, labels: {enabled: false}, showFirstLabel: false, endOnTick: false, min: 0, max: null, lineWidth: false},tooltip: {enabled: true, formatter: function() { return '<b>' + this.series.name + '</b>: ' + (this.value || this.y || 0).formatMoney(); }},credits: {enabled: false},colors: ["#973759","#eb3d58","#72c023","#b2e03c","#f1dc8b"],plotOptions: {bar: {stacking: "percent", shadow: false, borderWidth: 1, pointPadding: -0.4}},chart: {defaultSeriesType: "bar", renderTo: "status_distribution", borderRadius: 0, plotBackgroundColor: "#f6f5f2", events: null, spacingTop: 0, spacingRight: 0, spacingBottom: 0, spacingLeft: 0},subtitle: {},exporting: {buttons: {printButton: {enabled: false}, exportButton: {enabled: false, menuItems: null, onclick: function() {this.exportChart();}}}, url: "/svg/create"},series: [{"data":[94688],"name":"Lost"},{"data":[32270],"name":"At-risk"},{"data":[56279],"name":"Repeat"},{"data":[349048],"name":"One purchase"},{"data":[429384],"name":"Member"}] };
+              options.tooltip.formatter =  function() { return 'There are <b>' + this.y + ' ' + this.series.name + '</b>' + (this.series.name == 'Member' ? '<b>s</b>' : ' customers') + ' (' + Math.round((this.y * 100)/this.total) + '% of total)';}
+            chart_status_distribution = new Highcharts.Chart(options);
+            };
+          })()
+        </script>
+  <% high_chart("my_id4", @chart)  %>
+  <br>
+  <div class='content'>
+    <div class='legend_item' style='width:160px;float:left;'>
+      <div class='legend_description'><strong>MEMBER</strong><br>429,384</div>
+    </div>
+    <div class='legend_item' style='width:160px;float:left;'>
+      <div class='legend_description'><strong>ONE PURCHASE</strong><br>349,048</div>
+    </div>
+    <div class='legend_item' style='width:160px;float:left;'>
+      <div class='legend_description'><strong>REPEAT</strong><br>56,279</div>
+    </div>
+    <div class='legend_item' style='width:160px;float:left;'>
+      <div class='legend_description'><strong>AT RISK</strong><br>32,270</div>
+    </div>
+    <div class='legend_item' style='width:160px;float:left;'>
+      <div class='legend_description'><strong>LOST</strong><br>94,688</div>
+    </div>
+  </div>
+
+</div>
+<hr />
+<h4> Campytics recommends you concentrate on controlling your time on FB :p </h4>
+
+<%= link_to "Manage one-time campaigns", campaigns_path , class: "btn btn-large btn-success" %>
+<br /> <br />
+<%= link_to "Manage triggered campaigns", triggers_path, class: "btn btn-large btn-success" %>
+<br /> <br />
+<%= link_to "Manage offers", offers_path, class: "btn btn-large btn-success" %>
